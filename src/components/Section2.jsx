@@ -27,8 +27,8 @@ const Section2 = ({ data, setModalImage, handleAnchorClick }) => {
     return (
         <section id="section2" className="px-6 py-16 max-w-7xl mx-auto">
             <div className="flex flex-col items-center mb-10">
-                <h2 className="text-3xl md:text-4xl font-semibold text-gray-400">{acf?.section_2_title}</h2>
-                <hr  className="mt-5 w-80 border-t-2 border-gray-500"/>
+                <h2 className="text-3xl md:text-4xl font-semibold text-gray-400 text-center">{acf?.section_2_title}</h2>
+                <hr className="mt-5 w-32 md:w-80 border-t-2 border-gray-500" />
             </div>
 
             <div className="grid md:grid-cols-3 gap-12">
