@@ -31,7 +31,7 @@ function Home() {
 	}
     
     return (
-        <div className="bg-black text-white font-sans min-h-screen">
+        <div className="bg-black text-white font-sans min-h-screen pt-20">
             <Section1 data={section1.data} handleAnchorClick={handleAnchorClick}/>
             <Section2 data={section2.data} setModalImage={setModalImage} handleAnchorClick={handleAnchorClick} />
 

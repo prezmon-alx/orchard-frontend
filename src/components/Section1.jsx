@@ -1,17 +1,41 @@
+import { useEffect, useState } from "react"
 import ImageCard from "./ImageCard"
 import SectionContent from "./SectionContent"
 
 const Section1 = ({ data, handleAnchorClick }) => {
     const acf = data[0]?.acf
+    const [showImages, setShowImages] = useState(false)
+
+    useEffect(() => {
+        const timeout = setTimeout(() => setShowImages(true), 200)
+        return () => clearTimeout(timeout)
+    }, [acf])
+
 
     return (
         <section id="section1" className="px-6 py-16 max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-3 gap-8 items-stretch">
-                <ImageCard src={acf?.section_1_image_1?.url} alt={acf?.section_1_image_1?.name} />
+                <ImageCard
+                    src={acf?.section_1_image_1?.url}
+                    alt={acf?.section_1_image_1?.name}
+                    show={showImages}
+                    direction="left"
+                />
 
                 <div className="flex flex-col justify-between h-full">
-                    <ImageCard src={acf?.section_1_image_2?.url} alt={acf?.section_1_image_2?.name} />
-                    <ImageCard src={acf?.section_1_image_3?.url} alt={acf?.section_1_image_3?.name} className="mt-auto" />
+                    <ImageCard
+                        src={acf?.section_1_image_2?.url}
+                        alt={acf?.section_1_image_2?.name}
+                        show={showImages}
+                        direction="up"
+                    />
+                    <ImageCard
+                        src={acf?.section_1_image_3?.url}
+                        alt={acf?.section_1_image_3?.name}
+                        className="mt-auto"
+                        show={showImages}
+                        direction="right"
+                    />
                 </div>
 
                 <SectionContent

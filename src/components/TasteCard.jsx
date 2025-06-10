@@ -1,6 +1,17 @@
-function TasteCard({ card, onClick, handleAnchorClick }) {
+import { directionMap } from "../utils/animationDirections"
+
+function TasteCard({ card, onClick, handleAnchorClick, show = false, direction = "up", delay = 0 }) {
+    const initialTranslate = directionMap[direction] || directionMap.up
+
     return (
-        <div className="text-center space-y-6">
+        <div
+            className={`
+                text-center space-y-6
+                transition-all duration-700 ease-out
+                ${show ? "opacity-100 translate-x-0 translate-y-0" : `opacity-0 ${initialTranslate}`}
+            `}
+            style={{ transitionDelay: `${delay}ms` }}
+        >
             <div
                 className="aspect-square relative rounded-lg overflow-hidden bg-gray-800 max-w-xs mx-auto cursor-pointer group"
                 onClick={onClick}
