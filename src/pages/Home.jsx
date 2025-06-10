@@ -3,6 +3,7 @@ import Section1 from '../components/Section1'
 import Section2 from '../components/Section2'
 import Modal from '../components/Modal'
 import useApi from '../hooks/useApi'
+import Loading from '../components/Loading'
 
 function Home() {
     const [modalImage, setModalImage] = useState(null)
@@ -12,17 +13,13 @@ function Home() {
 
     const isLoading = section2.loading || section1.loading
     const isError = section2.error || section1.error
-
+    
     if (isLoading) {
-        return (
-            <div className="bg-black w-full h-screen flex justify-center items-center">
-                <span className="text-lg text-gray-500 animate-pulse">Loading content...</span>
-            </div>
-        )
+        return <Loading />
     }
 
     if (isError) {
-        return <div className="bg-black text-red-500 text-center mt-10">Something went wrong.</div>
+        return <Error />
     }
     
 	const handleAnchorClick = (e) => {
