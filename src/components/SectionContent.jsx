@@ -8,13 +8,11 @@ const SectionContent = ({ title, description, linkText, linkDescription, handleA
 
                 <hr className='w-full border-t-2 border-gray-500 ' />
 
-                <div className="text-gray-400 leading-relaxed text-lg space-y-4">
-                    <p>{description}</p>
-                </div>
+                <div className="text-gray-400 leading-relaxed text-lg space-y-4" dangerouslySetInnerHTML={{ __html: description }} />
             </div>
 
             <a 
-                href="#" 
+                href="" 
                 className="mt-20 bg-gray-800 p-4 rounded-lg border-l-4 border-orange-500 hover:bg-gray-700 transition-colors duration-300 ease-in-out" 
                 onClick={handleAnchorClick}
             >
