@@ -1,30 +1,8 @@
-import { useEffect, useState } from "react"
 import ImageCard from "./ImageCard"
 import SectionContent from "./SectionContent"
 
-const Section1 = ({ handleAnchorClick }) => {
-    const [section1Data, setSection1Data] = useState(null)
-
-    useEffect(() => {
-        const BASE_URL = import.meta.env.VITE_API_URL
-
-        fetch(`${BASE_URL}/recipes`)
-            .then((res) => {
-                if (!res.ok) throw new Error('Failed to fetch')
-                return res.json()
-            })
-            .then((json) => {
-                setSection1Data(json[0])
-            })
-            .catch((err) => {
-                setError(err)
-                console.error(err)
-            })
-    }, [])
-
-    if (!section1Data) return null
-
-    const acf = section1Data?.acf
+const Section1 = ({ data, handleAnchorClick }) => {
+    const acf = data[0]?.acf
 
     return (
         <section id="section1" className="px-6 py-16 max-w-7xl mx-auto">
